@@ -33,13 +33,15 @@ architecture Behavioral of reg_file is
                     register_bank(to_integer(unsigned(write_addr))) <= write_data;
                     reg_a_data <= (others => 'X');
                     reg_b_data <= (others => 'X');
-                elsif write_en = '0' then -- se write_en = 0, lê do registrador
+                end if;
+            elsif falling_edge(clk) then -- na borda de descida
+                if write_en = '0' then -- se write_en = 0, lê do registrador
                     reg_a_data <= register_bank(to_integer(unsigned(reg_a_addr)));
                     reg_b_data <= register_bank(to_integer(unsigned(reg_b_addr)));
-                else -- se write_en = X, não faz nada
-                    reg_a_data <= (others => 'X');
-                    reg_b_data <= (others => 'X');
                 end if;
+            else -- se write_en = X, não faz nada
+                reg_a_data <= (others => 'X');
+                reg_b_data <= (others => 'X');
             end if;
         end process register_access;
 

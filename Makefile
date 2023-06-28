@@ -3,6 +3,6 @@ Flags = --std=08
 
 all:
 	ghdl -a $(Flags) $(SRC)
-	ghdl -e $(Flags) test_pc
-	ghdl -r $(Flags) test_pc --wave=testbench.ghw --stop-time=10us
+	ghdl -e $(Flags) ctrl_unit
+	ghdl -r $(Flags) Ctrl_unit --wave=testbench.ghw --stop-time=10us
 	mv testbench.ghw ./test/waveforms/testbench.ghw
