@@ -6,20 +6,29 @@ entity ctrl_unit is
     port(
         instr : in std_logic_vector(31 downto 0);
         pc_reg : out std_logic; -- 0 -> pc, 1 -> reg1
-        alu_op : out std_logic_vector(3 downto 0); -- alu opcode
+        alu_op : out std_logic_vector(2 downto 0); -- alu opcode
         branch : out std_logic; -- 0 -> não é branch e 1 -> é branch
         mem_read : out std_logic; -- 0 -> sem leitura, 1 -> leitura
         mem_write : out std_logic; -- 0 -> sem escrita, 1 -> escrita
         mem_to_reg : out std_logic; -- 0 -> alu, 1 -> mem
         alu_src : out std_logic; -- 0 -> reg, 1 -> imediato
         reg_write : out std_logic; -- 0 -> leitura , 1 -> escrita
-        pc_reg_branch : out std_logic -- 0 -> pc, 1 -> reg1 (entrada do somador do branch)
+        pc_reg_branch : out std_logic -- 0 -> pc, 1 -> reg1 (mux de entrada do somador do branch)
     );
 end entity;
 
 architecture Behavioral of ctrl_unit is
 begin
-    
+    -- alu_op           operação
+    --  000     nop
+    --  001     logico-aritmética (R-type)
+    --  010     logico-aritmética (I-type)
+    --  011     branch (equal or not equal)
+    --  100     adição in1 + in2
+    --  101     adição in1 + 4
+    --  110     passa o imediato (in2) direto pra saída
+    --  111     nop
+
     ctrl_decode : process(instr)
     begin
         case instr(6 downto 0) is
@@ -30,7 +39,7 @@ begin
                 mem_read <= 'X'; 
                 branch <= '0'; -- sem branch
                 alu_src <= '0'; -- reg
-                alu_op <= "0000"; -- resolver dps (add, sub, and, or, xor, sll, slr)
+                alu_op <= "001"; -- (logico-aritmética)
                 pc_reg <= '0'; -- passa reg
                 pc_reg_branch <= '0'; -- passa pc
             when "0010011" => -- instruções tipo I
@@ -40,7 +49,7 @@ begin
                 mem_read <= 'X'; 
                 branch <= '0'; -- sem branch
                 alu_src <= '1'; -- imediato
-                alu_op <= "0000"; -- resolver dps (addi, andi, ori, xori, slli, slri)
+                alu_op <= "010"; -- (logico-aritmética)
                 pc_reg <= '0'; -- passa reg
                 pc_reg_branch <= '0'; -- passa pc
             when "1100011" => -- instruções de branch
@@ -50,7 +59,7 @@ begin
                 mem_read <= 'X';
                 branch <= '1'; -- branch
                 alu_src <= '0'; -- reg
-                alu_op <= "0000"; -- resolver dps (equal or not equal)
+                alu_op <= "011"; -- (equal or not equal)
                 pc_reg <= '0'; -- passa reg
                 pc_reg_branch <= '0'; -- passa pc
             when "0010111" => -- auipc
@@ -60,7 +69,7 @@ begin
                 mem_read <= 'X';
                 branch <= '0'; -- sem branch
                 alu_src <= '1'; -- imediato
-                alu_op <= "0000"; -- resolver dps (add)
+                alu_op <= "100"; -- (add)
                 pc_reg <= '1'; -- pc
                 pc_reg_branch <= '0'; -- passa pc
             when "0110111" => -- lui
@@ -70,7 +79,7 @@ begin
                 mem_read <= 'X';
                 branch <= '0'; -- sem branch
                 alu_src <= '1'; -- imediato
-                alu_op <= "0000"; -- resolver dps (passa o imediato pra saída)
+                alu_op <= "110"; -- (passa o imediato pra saída da ALU)
                 pc_reg <= 'X'; -- essa entrada não é processada nessa alu_op
                 pc_reg_branch <= '0'; -- passa pc
             when "0000011" => -- lw
@@ -80,7 +89,7 @@ begin
                 mem_read <= '1';
                 branch <= '0'; -- sem branch
                 alu_src <= '1'; -- imediato
-                alu_op <= "0000"; -- resolver dps (add)
+                alu_op <= "100"; -- (add)
                 pc_reg <= '0'; -- passa reg
                 pc_reg_branch <= '0'; -- passa pc
             when "0100011" => -- sw
@@ -90,7 +99,7 @@ begin
                 mem_read <= '0';
                 branch <= '0'; -- sem branch
                 alu_src <= '1'; -- imediato
-                alu_op <= "0000"; -- resolver dps (add)
+                alu_op <= "100"; -- (add)
                 pc_reg <= '0'; -- passa reg
                 pc_reg_branch <= '0'; -- passa pc
             when "1101111" => -- jal
@@ -100,7 +109,7 @@ begin
                 mem_read <= 'X';
                 branch <= '1'; -- branch
                 alu_src <= '1'; -- imediato
-                alu_op <= "0000"; -- resolver dps (add + 4)
+                alu_op <= "101"; --(add + 4)
                 pc_reg <= '1'; -- passa pc
                 pc_reg_branch <= '0'; -- passa pc
             when "1100111" => -- jalr
@@ -110,19 +119,19 @@ begin
                 mem_read <= 'X';
                 branch <= '1'; -- branch
                 alu_src <= '1'; -- imediato
-                alu_op <= "0000"; -- resolver dps (add + 4)
+                alu_op <= "101"; --(add + 4)
                 pc_reg <= '1'; -- passa pc
                 pc_reg_branch <= '1'; -- passa reg1
             when others =>
                 reg_write <= 'X';
-                mem_to_reg <= 'X'; -- não escreve em reg
-                mem_write <= 'X';  -- não é mem
+                mem_to_reg <= 'X';
+                mem_write <= 'X'; 
                 mem_read <= 'X';
-                branch <= 'X'; -- sem branch
-                alu_src <= 'X'; -- imediato
-                alu_op <= "XXXX"; -- resolver dps (add)
-                pc_reg <= 'X'; -- passa reg
-                pc_reg_branch <= '0'; -- passa pc      
+                branch <= 'X'; 
+                alu_src <= 'X'; 
+                alu_op <= "XXX";
+                pc_reg <= 'X'; 
+                pc_reg_branch <= 'X';
         end case;
     end process ctrl_decode;
 end architecture;
