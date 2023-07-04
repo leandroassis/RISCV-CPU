@@ -25,7 +25,7 @@ begin
     --  010     logico-aritmética (I-type)
     --  011     branch (equal or not equal)
     --  100     adição in1 + in2
-    --  101     adição in1 + 4
+    --  101     adição in1 + 4 (equal or not equal = 1)
     --  110     passa o imediato (in2) direto pra saída
     --  111     nop
 
@@ -108,7 +108,7 @@ begin
                 mem_write <= 'X';  -- não é mem
                 mem_read <= 'X';
                 branch <= '1'; -- branch
-                alu_src <= '1'; -- imediato
+                alu_src <= 'X'; -- tanto faz o que entra na segunda entrada 
                 alu_op <= "101"; --(add + 4)
                 pc_reg <= '1'; -- passa pc
                 pc_reg_branch <= '0'; -- passa pc
@@ -118,7 +118,7 @@ begin
                 mem_write <= 'X';  -- não é mem
                 mem_read <= 'X';
                 branch <= '1'; -- branch
-                alu_src <= '1'; -- imediato
+                alu_src <= 'X'; -- tanto faz o que entra na segunda entrada
                 alu_op <= "101"; --(add + 4)
                 pc_reg <= '1'; -- passa pc
                 pc_reg_branch <= '1'; -- passa reg1
