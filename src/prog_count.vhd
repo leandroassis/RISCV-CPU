@@ -14,7 +14,7 @@ end prog_count;
 architecture Behavioral of prog_count is
     signal immediate, ptr_pc : std_logic_vector(31 downto 0) := (others => '0');
     begin 
-        --immediate <= imm sll 1; -- precisa shiftar dnv?
+        immediate <= imm; -- precisa shiftar dnv?
         pc <= ptr_pc;
 
         fetch_instr: process(clk, ptr_pc) is
