@@ -7,7 +7,7 @@ entity imm_gen is
         instr : in std_logic_vector(31 downto 0);
         imm : out std_logic_vector(31 downto 0)
     );
-end entity;
+end imm_gen;
 
 architecture Behavioral of imm_gen is
 begin
@@ -39,7 +39,7 @@ begin
                 imm(11 downto 0) <= instr(31 downto 25) & instr(11 downto 7);
                 imm(31 downto 12) <= (others => instr(31));
             when "0010011" => -- i-type
-                if instr(13) or not instr(12) then -- andi, ori, xori, 
+                if (instr(13) or (not instr(12))) = '1' then -- andi, ori, xori, 
                     imm(11 downto 0) <= instr(31 downto 20);
                     imm(31 downto 12) <= (others => instr(31));
                 else                               -- slli e srli
