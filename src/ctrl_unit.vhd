@@ -15,7 +15,7 @@ entity ctrl_unit is
         reg_write : out std_logic; -- 0 -> leitura , 1 -> escrita
         pc_reg_branch : out std_logic -- 0 -> pc, 1 -> reg1 (mux de entrada do somador do branch)
     );
-end entity;
+end ctrl_unit;
 
 architecture Behavioral of ctrl_unit is
 begin
