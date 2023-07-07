@@ -9,7 +9,7 @@ entity prog_count is
         branch : in std_logic;
         pc : out std_logic_vector(31 downto 0)
     );
-end entity;
+end prog_count;
 
 architecture Behavioral of prog_count is
     signal immediate, ptr_pc : std_logic_vector(31 downto 0) := (others => '0');
