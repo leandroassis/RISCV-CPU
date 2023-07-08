@@ -7,9 +7,9 @@ entity reg_file is
         clk : in std_logic;
         write_en : in std_logic;
 
-        write_addr : in std_logic_vector(4 downto 0);
         write_data : in std_logic_vector(31 downto 0);
-
+        
+        write_addr : in std_logic_vector(4 downto 0);
         reg_a_addr : in std_logic_vector(4 downto 0);
         reg_b_addr : in std_logic_vector(4 downto 0);
 
