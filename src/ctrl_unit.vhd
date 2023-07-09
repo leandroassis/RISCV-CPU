@@ -25,7 +25,7 @@ begin
     --  010     logico-aritmética (I-type)
     --  011     branch (equal or not equal)
     --  100     adição in1 + in2
-    --  101     adição in1 + 4 (equal or not equal = 1)
+    --  101     adição in1 + 1 (equal or not equal = 1)
     --  110     passa o imediato (in2) direto pra saída
     --  111     nop
 
