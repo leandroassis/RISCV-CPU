@@ -53,10 +53,16 @@ architecture Behavioral of alu is
                 aux_br <= '0';
             when "1000" => 
                 out_r <= (others => 'X');
-                aux_br <= '1' when in_a = in_b else '0';
+                if in_a = in_b then
+                	aux_br <= '1';
+                else aux_br <= '0';
+                end if;
             when "1001" => 
                 out_r <= (others => 'X');
-                aux_br <= '1' when in_a /= in_b else '0';
+                if in_a /= in_b then
+                	aux_br <= '1';
+                else aux_br <= '0';
+                end if;
             when "1010" => 
                 out_r <= std_logic_vector(unsigned(in_a) + 1);
                 aux_br <= '1';
