@@ -29,7 +29,7 @@ architecture Behavioral of prog_count is
                     	ptr_pc <= std_logic_vector(unsigned(reg_in) + unsigned(immediate));
                     end if;
                 else
-                    ptr_pc <= std_logic_vector(unsigned(ptr_pc) + 1);
+                    ptr_pc <= std_logic_vector(unsigned(ptr_pc) + 2);
                 end if;
             end if;
         end process fetch_instr;
