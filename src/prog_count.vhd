@@ -23,10 +23,10 @@ architecture Behavioral of prog_count is
         begin
             if rising_edge(clk) then
                 if branch = '1' then
-                	if pc_reg_mux = '1' then
-                    	ptr_pc <= std_logic_vector(unsigned(ptr_pc) + unsigned(immediate));
+                	if pc_reg_mux = '0' then
+                    	ptr_pc <= std_logic_vector(signed(ptr_pc) + signed(immediate));
                     else
-                    	ptr_pc <= std_logic_vector(unsigned(reg_in) + unsigned(immediate));
+                    	ptr_pc <= std_logic_vector(signed(reg_in) + signed(immediate));
                     end if;
                 else
                     ptr_pc <= std_logic_vector(unsigned(ptr_pc) + x"00000001");
