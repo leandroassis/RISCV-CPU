@@ -22,16 +22,14 @@ begin
                 imm(31 downto 12) <= instr(31 downto 12);
                 imm(11 downto 0) <= (others => '0');
             when "1101111" => -- jal
-                imm(0) <= '0';
-                imm(20 downto 1) <= instr(31) & instr(19 downto 12) & instr(20) & instr(30 downto 21);
-                imm(31 downto 21) <= (others => instr(31));
+                imm(19 downto 0) <= instr(31) & instr(19 downto 12) & instr(20) & instr(30 downto 21);
+                imm(31 downto 20) <= (others => instr(31));
             when "1100111" => -- jalr
                 imm(11 downto 0) <= instr(31 downto 20);
                 imm(31 downto 12) <= (others => instr(31));
             when "1100011" => -- branch
-                imm(0) <= '0';
-                imm(12 downto 1) <= instr(31) & instr(7) & instr(30 downto 25) & instr(11 downto 8);
-                imm(31 downto 13) <= (others => instr(31));
+                imm(11 downto 0) <= instr(31) & instr(7) & instr(30 downto 25) & instr(11 downto 8);
+                imm(31 downto 12) <= (others => instr(31));
             when "0000011" => -- load
                 imm(11 downto 0) <= instr(31 downto 20);
                 imm(31 downto 12) <= (others => instr(31));
