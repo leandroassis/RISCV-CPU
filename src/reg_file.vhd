@@ -31,7 +31,9 @@ architecture Behavioral of reg_file is
         begin
             -- na borda de subida
             if rising_edge(clk) and write_en = '1' then
-            	register_bank(to_integer(unsigned(write_addr))) <= write_data;
+            	if write_addr /= "00000" then
+            		register_bank(to_integer(unsigned(write_addr))) <= write_data;
+            	end if;
             end if;
         end process register_access;
 
