@@ -20,28 +20,18 @@ end reg_file;
 
 architecture Behavioral of reg_file is
     -- 32 registradores de 32 bits
-    type register_mem is array (31 downto 0) of std_logic_vector(31 downto 0);
-    signal register_bank : register_mem;
+    type register_mem is array (integer range <>) of std_logic_vector(31 downto 0);
+    signal register_bank : register_mem(0 to 31) := (others => x"00000000");
 
     begin
-        register_access: process(clk) is
+        reg_a_data <= register_bank(to_integer(unsigned(reg_a_addr)));
+        reg_b_data <= register_bank(to_integer(unsigned(reg_b_addr)));
+        
+        register_access: process(clk, write_en, write_addr) is
         begin
             -- na borda de subida
-            if rising_edge(clk) then
-                --  se write_en = 1, escreve no registrador
-                if write_en = '1' then
-                    register_bank(to_integer(unsigned(write_addr))) <= write_data;
-                    reg_a_data <= (others => 'X');
-                    reg_b_data <= (others => 'X');
-                end if;
-            elsif falling_edge(clk) then -- na borda de descida
-                if write_en = '0' then -- se write_en = 0, lê do registrador
-                    reg_a_data <= register_bank(to_integer(unsigned(reg_a_addr)));
-                    reg_b_data <= register_bank(to_integer(unsigned(reg_b_addr)));
-                end if;
-            else -- se write_en = X, não faz nada
-                reg_a_data <= (others => 'X');
-                reg_b_data <= (others => 'X');
+            if rising_edge(clk) and write_en = '1' then
+            	register_bank(to_integer(unsigned(write_addr))) <= write_data;
             end if;
         end process register_access;
 
