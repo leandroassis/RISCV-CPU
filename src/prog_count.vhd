@@ -15,11 +15,11 @@ end prog_count;
 
 architecture Behavioral of prog_count is
     signal immediate, ptr_pc : std_logic_vector(31 downto 0) := (others => '0');
-    begin 
+    begin
         immediate <= imm;
         pc <= ptr_pc;
 
-        fetch_instr: process(clk, ptr_pc) is
+        fetch_instr: process(clk, ptr_pc, branch, pc_reg_mux) is
         begin
             if rising_edge(clk) then
                 if branch = '1' then
@@ -29,7 +29,7 @@ architecture Behavioral of prog_count is
                     	ptr_pc <= std_logic_vector(unsigned(reg_in) + unsigned(immediate));
                     end if;
                 else
-                    ptr_pc <= std_logic_vector(unsigned(ptr_pc) + 2);
+                    ptr_pc <= std_logic_vector(unsigned(ptr_pc) + 1);
                 end if;
             end if;
         end process fetch_instr;
