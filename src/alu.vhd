@@ -32,10 +32,10 @@ architecture Behavioral of alu is
     begin
         case op is
             when "0001" => 
-                out_r <= std_logic_vector(unsigned(in_a) + unsigned(in_b));
+                out_r <= std_logic_vector(signed(in_a) + signed(in_b));
                 aux_br <= '0';
             when "0010" => 
-                out_r <= std_logic_vector(unsigned(in_a) - unsigned(in_b));
+                out_r <= std_logic_vector(signed(in_a) - signed(in_b));
                 aux_br <= '0';
             when "0011" => 
                 out_r <= in_a and in_b;
