@@ -7,11 +7,13 @@ entity EX_MEM is
         
         alu_result_in : in std_logic_vector(31 downto 0);
         branch_alu_in : in std_logic;
+        reg_a_in : in std_logic_vector(31 downto 0);
         reg_b_in : in std_logic_vector(31 downto 0);
         imm_in : in std_logic_vector(31 downto 0);
         wb_addr_in : in std_logic_vector(4 downto 0);
 
         imm_out : out std_logic_vector(31 downto 0);
+        reg_a_out : out std_logic_vector(31 downto 0);
         reg_b_out : out std_logic_vector(31 downto 0);
         alu_result_out : out std_logic_vector(31 downto 0);
         branch_alu_out : out std_logic;
@@ -42,6 +44,7 @@ architecture Behavioral of EX_MEM is
         begin
             if rising_edge(clk) then
                 imm_out <= imm_in;
+                reg_a_out <= reg_a_in;
                 reg_b_out <= reg_b_in;
                 alu_result_out <= alu_result_in;
                 branch_alu_out <= branch_alu_in;
