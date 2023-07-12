@@ -3,7 +3,7 @@ use ieee.std_logic_1164.all;
 
 entity mem_br_taken is
     port (
-        alU_br : in std_logic;
+        alu_br : in std_logic;
         branch : in std_logic;
 
         if_ex_flush : out std_logic;
