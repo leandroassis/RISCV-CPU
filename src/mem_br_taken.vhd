@@ -9,7 +9,7 @@ entity mem_br_taken is
         if_ex_flush : out std_logic;
         if_id_flush : out std_logic
     );
-end entity mem_br_taken;
+end mem_br_taken;
 
 architecture Behavioral of mem_br_taken is
     begin
@@ -23,4 +23,3 @@ architecture Behavioral of mem_br_taken is
             end if;
         end process;
 end Behavioral;
-
