@@ -347,11 +347,18 @@ end TCL_Generic;&#13;
       <a name="label" val="bubble"/>
       <a name="labelfont" val="SansSerif bold 13"/>
     </comp>
+    <comp lib="0" loc="(2540,2060)" name="Clock">
+      <a name="label" val="clk_logisim"/>
+    </comp>
     <comp lib="0" loc="(2560,1160)" name="Tunnel">
       <a name="facing" val="south"/>
       <a name="label" val="IF_ID_pc"/>
       <a name="labelfont" val="SansSerif bold 13"/>
       <a name="width" val="32"/>
+    </comp>
+    <comp lib="0" loc="(2560,2000)" name="Pin">
+      <a name="appearance" val="NewPins"/>
+      <a name="label" val="manual_clk"/>
     </comp>
     <comp lib="0" loc="(2610,1140)" name="Tunnel">
       <a name="facing" val="south"/>
@@ -381,6 +388,10 @@ end TCL_Generic;&#13;
     <comp lib="0" loc="(2620,1410)" name="Tunnel">
       <a name="facing" val="east"/>
       <a name="label" val="mem_reg"/>
+      <a name="labelfont" val="SansSerif bold 13"/>
+    </comp>
+    <comp lib="0" loc="(2860,2100)" name="Tunnel">
+      <a name="label" val="clk"/>
       <a name="labelfont" val="SansSerif bold 13"/>
     </comp>
     <comp lib="0" loc="(2950,1890)" name="Tunnel">
@@ -458,9 +469,6 @@ end TCL_Generic;&#13;
       <a name="labelfont" val="SansSerif bold 13"/>
       <a name="width" val="32"/>
     </comp>
-    <comp lib="0" loc="(3100,1740)" name="Clock">
-      <a name="label" val="clk_src"/>
-    </comp>
     <comp lib="0" loc="(3110,1310)" name="Tunnel">
       <a name="facing" val="east"/>
       <a name="label" val="MEM_WB_result"/>
@@ -494,10 +502,6 @@ end TCL_Generic;&#13;
       <a name="label" val="fwd_a"/>
       <a name="labelfont" val="SansSerif bold 13"/>
       <a name="width" val="2"/>
-    </comp>
-    <comp lib="0" loc="(3190,1740)" name="Tunnel">
-      <a name="label" val="clk"/>
-      <a name="labelfont" val="SansSerif bold 13"/>
     </comp>
     <comp lib="0" loc="(3200,1080)" name="Tunnel">
       <a name="facing" val="east"/>
@@ -719,6 +723,10 @@ end TCL_Generic;&#13;
       <a name="label" val="pc_reg_br"/>
       <a name="labelfont" val="SansSerif bold 13"/>
     </comp>
+    <comp lib="1" loc="(2630,2160)" name="NOT Gate"/>
+    <comp lib="1" loc="(2690,2040)" name="AND Gate"/>
+    <comp lib="1" loc="(2690,2180)" name="AND Gate"/>
+    <comp lib="1" loc="(2790,2100)" name="OR Gate"/>
     <comp lib="1" loc="(970,1300)" name="AND Gate">
       <a name="label" val="branch_en"/>
       <a name="labelfont" val="SansSerif bold 12"/>
@@ -796,6 +804,10 @@ c313b3 6383b3 333 7002b3 532023 130313 fe731ee3 63
     <comp loc="(2390,1470)" name="imm_gen">
       <a name="appearance" val="logisim_evolution"/>
       <a name="label" val="immediate_gen"/>
+    </comp>
+    <comp loc="(2570,2200)" name="clk_src">
+      <a name="appearance" val="logisim_evolution"/>
+      <a name="label" val="clk_automatico"/>
     </comp>
     <comp loc="(2850,1150)" name="ID_EX">
       <a name="appearance" val="logisim_evolution"/>
@@ -934,8 +946,15 @@ c313b3 6383b3 333 7002b3 532023 130313 fe731ee3 63
     <wire from="(2510,1280)" to="(2510,1290)"/>
     <wire from="(2510,1290)" to="(2630,1290)"/>
     <wire from="(2510,1470)" to="(2630,1470)"/>
+    <wire from="(2540,2060)" to="(2640,2060)"/>
     <wire from="(2560,1160)" to="(2560,1190)"/>
     <wire from="(2560,1190)" to="(2630,1190)"/>
+    <wire from="(2560,2000)" to="(2590,2000)"/>
+    <wire from="(2570,2200)" to="(2640,2200)"/>
+    <wire from="(2590,2000)" to="(2590,2020)"/>
+    <wire from="(2590,2020)" to="(2590,2160)"/>
+    <wire from="(2590,2020)" to="(2640,2020)"/>
+    <wire from="(2590,2160)" to="(2600,2160)"/>
     <wire from="(2600,1430)" to="(2600,1450)"/>
     <wire from="(2600,1430)" to="(2630,1430)"/>
     <wire from="(2610,1140)" to="(2610,1150)"/>
@@ -946,6 +965,14 @@ c313b3 6383b3 333 7002b3 532023 130313 fe731ee3 63
     <wire from="(2610,1450)" to="(2610,1530)"/>
     <wire from="(2610,1450)" to="(2630,1450)"/>
     <wire from="(2620,1410)" to="(2630,1410)"/>
+    <wire from="(2630,2160)" to="(2640,2160)"/>
+    <wire from="(2690,2040)" to="(2720,2040)"/>
+    <wire from="(2690,2180)" to="(2720,2180)"/>
+    <wire from="(2720,2040)" to="(2720,2080)"/>
+    <wire from="(2720,2080)" to="(2740,2080)"/>
+    <wire from="(2720,2120)" to="(2720,2180)"/>
+    <wire from="(2720,2120)" to="(2740,2120)"/>
+    <wire from="(2790,2100)" to="(2860,2100)"/>
     <wire from="(2850,1150)" to="(2970,1150)"/>
     <wire from="(2850,1170)" to="(3040,1170)"/>
     <wire from="(2850,1190)" to="(3120,1190)"/>
@@ -997,7 +1024,6 @@ c313b3 6383b3 333 7002b3 532023 130313 fe731ee3 63
     <wire from="(3080,960)" to="(3120,960)"/>
     <wire from="(3090,1000)" to="(3090,1020)"/>
     <wire from="(3090,1000)" to="(3140,1000)"/>
-    <wire from="(3100,1740)" to="(3190,1740)"/>
     <wire from="(3110,1310)" to="(3170,1310)"/>
     <wire from="(3120,1010)" to="(3120,1030)"/>
     <wire from="(3120,1010)" to="(3140,1010)"/>
@@ -1246,18 +1272,16 @@ architecture Behavioral of reg_file is
     type register_mem is array (integer range &lt;&gt;) of std_logic_vector(31 downto 0);
     signal register_bank : register_mem(0 to 31) := (others =&gt; x"00000000");
 
-    begin       
+    begin      
+    	   reg_a_data &lt;= register_bank(to_integer(unsigned(reg_a_addr)));
+        reg_b_data &lt;= register_bank(to_integer(unsigned(reg_b_addr)));
         register_access: process(clk, write_en, write_addr) is
         begin
-            -- na borda de subida
+            -- na borda de descida
             if falling_edge(clk) and write_en = '1' then
             	if write_addr /= "00000" then
             		register_bank(to_integer(unsigned(write_addr))) &lt;= write_data;
             	end if;
-            end if;
-            if rising_edge(clk) then
-            	reg_a_data &lt;= register_bank(to_integer(unsigned(reg_a_addr)));
-        		reg_b_data &lt;= register_bank(to_integer(unsigned(reg_b_addr)));
             end if;
         end process register_access;
 
@@ -1941,4 +1965,23 @@ architecture Behavioral of mem_br_taken is
             end if;
         end process;
 end Behavioral;</vhdl>
+  <vhdl name="clk_src">library ieee;
+use ieee.std_logic_1164.all;
+
+entity clk_src is
+    port(
+        clk : out std_logic
+    );
+end clk_src;
+
+architecture Behavioral of clk_src is
+    begin
+        clock: process is -- clock de 2 GHz
+            begin
+                clk &lt;= '0';
+                wait for 0.5 ns;
+                clk &lt;= '1';
+                wait for 0.5 ns;
+        end process clock;
+end architecture;</vhdl>
 </project>
