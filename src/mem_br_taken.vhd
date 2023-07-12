@@ -14,9 +14,9 @@ architecture Behavioral of mem_br_taken is
     begin
         process (alU_br, branch)
         begin
-        flush <= '0';
             if (alU_br = '1' and branch = '1') then
                 flush <= '1';
+            else flush <= '0';
             end if;
         end process;
 end Behavioral;
