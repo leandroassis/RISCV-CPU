@@ -35,15 +35,14 @@ architecture Behavioral of fwd_unit is
                     end if;
                 end if;
                 
-                if mem_wb_reg_w = '1' and (mem_wb_reg_dst /= "00000") then
-                    if (mem_wb_reg_dst = reg_s1) or (ex_mem_reg_dst = reg_s1) then
-                        forward_a <= "01";
-                    else forward_a <= "00";
-                    end if;
-                    if (mem_wb_reg_dst = reg_s2) or (ex_mem_reg_dst = reg_s2) then
-                        forward_b <= "01";
-                    else forward_b <= "00";
-                    end if;
+                if mem_wb_reg_w = '1' and (mem_wb_reg_dst /= "00000") and not (ex_mem_reg_w = '1' and (ex_mem_reg_dst /= "00000")) and (ex_mem_reg_dst = reg_s1) and (mem_wb_reg_dst = reg_s1) then
+                    forward_a <= "01";
+                else forward_a <= "00";
+                end if;
+                    
+                if mem_wb_reg_w = '1' and (mem_wb_reg_dst /= "00000") and not (ex_mem_reg_w = '1' and (ex_mem_reg_dst /= "00000")) and (ex_mem_reg_dst = reg_s2) and (mem_wb_reg_dst = reg_s2) then
+                    forward_b <= "01";
+                else forward_b <= "00";
                 end if;
                 
                 if (mem_wb_reg_w /= '1') and (ex_mem_reg_w /= '1') then
