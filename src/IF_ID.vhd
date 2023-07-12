@@ -10,19 +10,20 @@ entity IF_ID is
         instr_out: out std_logic_vector(31 downto 0);
         pc_out : out std_logic_vector(31 downto 0);
 
-	    if_id_write : in std_logic;
-        if_id_flush : in std_logic
+	   write : in std_logic;
+        flush : in std_logic
     );
 end IF_ID;
 
 architecture Behavioral of IF_ID is
     begin
-        process(clk, if_id_flush, if_id_write)
+        process(clk, flush, write)
         begin
-            if rising_edge(clk) and if_id_write = '1' and not if_id_flush = '1' then
+            if rising_edge(clk) and write = '1' then
                 instr_out <= instr_in;
                 pc_out <= pc_in;
-            else
+            end if;
+            if flush = '1' then
                 instr_out <= (others => '0');
                 pc_out <= (others => '0');
             end if;
