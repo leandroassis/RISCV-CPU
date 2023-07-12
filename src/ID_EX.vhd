@@ -5,10 +5,6 @@ entity ID_EX is
     port(
         clk : in std_logic;
 
-        -- harzard
-        id_ex_flush : in std_logic;
-        id_ex_bubble : in std_logic;
-
         -- data
         instr_in: in std_logic_vector(31 downto 0);
         pc_in : in std_logic_vector(31 downto 0);
@@ -47,7 +43,11 @@ entity ID_EX is
         mem_to_reg_in : in std_logic;
         mem_to_reg_out : out std_logic;
         reg_w_in : in std_logic;
-        reg_w_out : out std_logic
+        reg_w_out : out std_logic;
+
+        -- harzard
+        id_ex_flush : in std_logic;
+        id_ex_bubble : in std_logic
     );
 end ID_EX;
 
