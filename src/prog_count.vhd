@@ -5,13 +5,13 @@ use ieee.numeric_std.all;
 entity prog_count is
     port(
         clk : in std_logic;
-        pc_w : in std_logic;
         imm : in std_logic_vector(31 downto 0);
         branch : in std_logic;
         pc_reg_mux : in std_logic;
         reg_in : in std_logic_vector(31 downto 0);
         pc_in : in std_logic_vector(31 downto 0);
-        pc : out std_logic_vector(31 downto 0)
+        pc : out std_logic_vector(31 downto 0);
+        pc_w : in std_logic
     );
 end prog_count;
 
