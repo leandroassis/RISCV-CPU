@@ -4,6 +4,11 @@ use ieee.std_logic_1164.all;
 entity ID_EX is
     port(
         clk : in std_logic;
+
+        -- harzard
+        id_ex_flush : in std_logic;
+        id_ex_bubble : in std_logic;
+
         -- data
         instr_in: in std_logic_vector(31 downto 0);
         pc_in : in std_logic_vector(31 downto 0);
@@ -48,9 +53,9 @@ end ID_EX;
 
 architecture Behavioral of ID_EX is
     begin
-        process(clk)
+        process(clk, id_ex_flush, id_ex_bubble)
         begin
-            if rising_edge(clk) then
+            if rising_edge(clk) and not id_ex_bubble = '1' and not id_ex_flush = '1' then
                 instr_out <= instr_in;
                 pc_out <= pc_in;
 
@@ -67,6 +72,23 @@ architecture Behavioral of ID_EX is
                 pc_reg_br_out <= pc_reg_br_in;
                 mem_to_reg_out <= mem_to_reg_in;
                 reg_w_out <= reg_w_in;
+            else
+                instr_out <= (others => '0');
+                pc_out <= (others => '0');
+
+                reg_a_out <= (others => '0');
+                reg_b_out <= (others => '0');
+                imm_out <= (others => '0');
+
+                pc_reg_alu_out <= '0';
+                alu_src_out <= '0';
+                alu_op_out <= (others => '0');
+                mem_w_out <= '0';
+                mem_r_out <= '0';
+                branch_out <= '0';
+                pc_reg_br_out <= '0';
+                mem_to_reg_out <= '0';
+                reg_w_out <= '0';
             end if;
         end process;
 end Behavioral;
