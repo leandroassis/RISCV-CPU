@@ -77,14 +77,14 @@ begin
                         elsif B(2 downto 0) = "000" then
                             S_o <= A;
                         else
-                            S_o(3 downto 0) <= std_logic_vector(shift_left(A(3 downto 0), to_integer(B(2 downto 0))));
-                            S_o(7 downto 4) <= std_logic_vector(shift_left(A(7 downto 4), to_integer(B(2 downto 0))));
-                            S_o(11 downto 8) <= std_logic_vector(shift_left(A(11 downto 8), to_integer(B(2 downto 0))));
-                            S_o(15 downto 12) <= std_logic_vector(shift_left(A(15 downto 12), to_integer(B(2 downto 0))));
-                            S_o(19 downto 16) <= std_logic_vector(shift_left(A(19 downto 16), to_integer(B(2 downto 0))));
-                            S_o(23 downto 20) <= std_logic_vector(shift_left(A(23 downto 20), to_integer(B(2 downto 0))));
-                            S_o(27 downto 24) <= std_logic_vector(shift_left(A(27 downto 24), to_integer(B(2 downto 0))));
-                            S_o(31 downto 28) <= std_logic_vector(shift_left(A(31 downto 28), to_integer(B(2 downto 0))));
+                            S_o(3 downto 0) <= std_logic_vector(shift_left(unsigned(A(3 downto 0), to_integer(unsigned(B(2 downto 0))))));
+                            S_o(7 downto 4) <= std_logic_vector(shift_left(unsigned(A(7 downto 4), to_integer(unsigned(B(2 downto 0))))));
+                            S_o(11 downto 8) <= std_logic_vector(shift_left(unsigned(A(11 downto 8), to_integer(unsigned(B(2 downto 0))))));
+                            S_o(15 downto 12) <= std_logic_vector(shift_left(unsigned(A(15 downto 12), to_integer(unsigned(B(2 downto 0))))));
+                            S_o(19 downto 16) <= std_logic_vector(shift_left(unsigned(A(19 downto 16), to_integer(unsigned(B(2 downto 0))))));
+                            S_o(23 downto 20) <= std_logic_vector(shift_left(unsigned(A(23 downto 20), to_integer(unsigned(B(2 downto 0))))));
+                            S_o(27 downto 24) <= std_logic_vector(shift_left(unsigned(A(27 downto 24), to_integer(unsigned(B(2 downto 0))))));
+                            S_o(31 downto 28) <= std_logic_vector(shift_left(unsigned(A(31 downto 28), to_integer(unsigned(B(2 downto 0))))));
                         end if;
                     when "001" => -- se 4 de 8 bits
                         if B(3 downto 0) >= "1000" then
@@ -92,10 +92,10 @@ begin
                         elsif B(3 downto 0) = "0000" then
                             S_o <= A;
                         else
-                            S_o(7 downto 0) <= std_logic_vector(shift_left(A(7 downto 0), to_integer(B(3 downto 0))));
-                            S_o(15 downto 8) <= std_logic_vector(shift_left(A(15 downto 8), to_integer(B(3 downto 0))));
-                            S_o(23 downto 16) <= std_logic_vector(shift_left(A(23 downto 16), to_integer(B(3 downto 0))));
-                            S_o(31 downto 24) <= std_logic_vector(shift_left(A(31 downto 24), to_integer(B(3 downto 0))));
+                            S_o(7 downto 0) <= std_logic_vector(shift_left(unsigned(A(7 downto 0), to_integer(unsigned(B(3 downto 0))))));
+                            S_o(15 downto 8) <= std_logic_vector(shift_left(unsigned(A(15 downto 8), to_integer(unsigned(B(3 downto 0))))));
+                            S_o(23 downto 16) <= std_logic_vector(shift_left(unsigned(A(23 downto 16), to_integer(unsigned(B(3 downto 0))))));
+                            S_o(31 downto 24) <= std_logic_vector(shift_left(unsigned(A(31 downto 24), to_integer(unsigned(B(3 downto 0))))));
                         end if;
                     when "010" => -- se 2 de 16 bits
                         if B(4 downto 0) >= "10000" then
@@ -103,8 +103,8 @@ begin
                         elsif B(4 downto 0) = "00000" then
                             S_o <= A;
                         else
-                            S_o(15 downto 0) <= std_logic_vector(shift_left(A(15 downto 0), to_integer(B(4 downto 0))));
-                            S_o(31 downto 16) <= std_logic_vector(shift_left(A(31 downto 16), to_integer(B(4 downto 0))));
+                            S_o(15 downto 0) <= std_logic_vector(shift_left(unsigned(A(15 downto 0), to_integer(unsigned(B(4 downto 0))))));
+                            S_o(31 downto 16) <= std_logic_vector(shift_left(unsigned(A(31 downto 16), to_integer(unsigned(B(4 downto 0))))));
                         end if;
                     when "011" => -- se 1 de 32 bits
                         if B(5 downto 0) >= "100000" then
@@ -112,7 +112,7 @@ begin
                         elsif B(5 downto 0) = "000000" then
                             S_o <= A;
                         else
-                            S_o <= std_logic_vector(shift_left(A, to_integer(B(5 downto 0))));
+                            S_o <= std_logic_vector(shift_left(unsigned(A, to_integer(unsigned(B(5 downto 0))))));
                         end if;
                     when others =>
                         S_o <= (others => 'Z');
@@ -128,14 +128,14 @@ begin
                         elsif B(2 downto 0) = "000" then
                             S_o <= A;
                         else
-                            S_o(3 downto 0) <= std_logic_vector(shift_right(A(3 downto 0), to_integer(B(2 downto 0))));
-                            S_o(7 downto 4) <= std_logic_vector(shift_right(A(7 downto 4), to_integer(B(2 downto 0))));
-                            S_o(11 downto 8) <= std_logic_vector(shift_right(A(11 downto 8), to_integer(B(2 downto 0))));
-                            S_o(15 downto 12) <= std_logic_vector(shift_right(A(15 downto 12), to_integer(B(2 downto 0))));
-                            S_o(19 downto 16) <= std_logic_vector(shift_right(A(19 downto 16), to_integer(B(2 downto 0))));
-                            S_o(23 downto 20) <= std_logic_vector(shift_right(A(23 downto 20), to_integer(B(2 downto 0))));
-                            S_o(27 downto 24) <= std_logic_vector(shift_right(A(27 downto 24), to_integer(B(2 downto 0))));
-                            S_o(31 downto 28) <= std_logic_vector(shift_right(A(31 downto 28), to_integer(B(2 downto 0))));
+                            S_o(3 downto 0) <= std_logic_vector(shift_right(unsigned(A(3 downto 0), to_integer(unsigned(B(2 downto 0))))));
+                            S_o(7 downto 4) <= std_logic_vector(shift_right(unsigned(A(7 downto 4), to_integer(unsigned(B(2 downto 0))))));
+                            S_o(11 downto 8) <= std_logic_vector(shift_right(unsigned(A(11 downto 8), to_integer(unsigned(B(2 downto 0))))));
+                            S_o(15 downto 12) <= std_logic_vector(shift_right(unsigned(A(15 downto 12), to_integer(unsigned(B(2 downto 0))))));
+                            S_o(19 downto 16) <= std_logic_vector(shift_right(unsigned(A(19 downto 16), to_integer(unsigned(B(2 downto 0))))));
+                            S_o(23 downto 20) <= std_logic_vector(shift_right(unsigned(A(23 downto 20), to_integer(unsigned(B(2 downto 0))))));
+                            S_o(27 downto 24) <= std_logic_vector(shift_right(unsigned(A(27 downto 24), to_integer(unsigned(B(2 downto 0))))));
+                            S_o(31 downto 28) <= std_logic_vector(shift_right(unsigned(A(31 downto 28), to_integer(unsigned(B(2 downto 0))))));
                         end if;
                     when "001" => -- se 4 de 8 bits
                         if B(3 downto 0) >= "1000" then
@@ -143,10 +143,10 @@ begin
                         elsif B(3 downto 0) = "0000" then
                             S_o <= A;
                         else
-                            S_o(7 downto 0) <= std_logic_vector(shift_right(A(7 downto 0), to_integer(B(3 downto 0))));
-                            S_o(15 downto 8) <= std_logic_vector(shift_right(A(15 downto 8), to_integer(B(3 downto 0))));
-                            S_o(23 downto 16) <= std_logic_vector(shift_right(A(23 downto 16), to_integer(B(3 downto 0))));
-                            S_o(31 downto 24) <= std_logic_vector(shift_right(A(31 downto 24), to_integer(B(3 downto 0))));
+                            S_o(7 downto 0) <= std_logic_vector(shift_right(unsigned(A(7 downto 0)), to_integer(unsigned(B(3 downto 0))))));
+                            S_o(15 downto 8) <= std_logic_vector(shift_right(unsigned(A(15 downto 8)), to_integer(unsigned(B(3 downto 0))))));
+                            S_o(23 downto 16) <= std_logic_vector(shift_right(unsigned(A(23 downto 16)), to_integer(unsigned(B(3 downto 0))))));
+                            S_o(31 downto 24) <= std_logic_vector(shift_right(unsigned(A(31 downto 24)), to_integer(unsigned(B(3 downto 0))))));
                         end if;
                     when "010" => -- se 2 de 16 bits
                         if B(4 downto 0) >= "10000" then
@@ -154,8 +154,8 @@ begin
                         elsif B(4 downto 0) = "00000" then
                             S_o <= A;
                         else
-                            S_o(15 downto 0) <= std_logic_vector(shift_right(A(15 downto 0), to_integer(B(4 downto 0))));
-                            S_o(31 downto 16) <= std_logic_vector(shift_right(A(31 downto 16), to_integer(B(4 downto 0))));
+                            S_o(15 downto 0) <= std_logic_vector(shift_right(unsigned(A(15 downto 0)), to_integer(unsigned(B(4 downto 0)))));
+                            S_o(31 downto 16) <= std_logic_vector(shift_right(unsigned(A(31 downto 16)), to_integer(unsigned(B(4 downto 0)))));
                         end if;
                     when "011" => -- se 1 de 32 bits
                         if B(5 downto 0) >= "100000" then
@@ -163,7 +163,7 @@ begin
                         elsif B(5 downto 0) = "000000" then
                             S_o <= A;
                         else
-                            S_o <= std_logic_vector(shift_right(A, to_integer(B(5 downto 0))));
+                            S_o <= std_logic_vector(shift_right(unsigned(A), to_integer(unsigned(B(5 downto 0)))));
                         end if;
                     when others =>
                         S_o <= (others => 'Z');
