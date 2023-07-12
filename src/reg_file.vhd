@@ -23,10 +23,7 @@ architecture Behavioral of reg_file is
     type register_mem is array (integer range <>) of std_logic_vector(31 downto 0);
     signal register_bank : register_mem(0 to 31) := (others => x"00000000");
 
-    begin
-        reg_a_data <= register_bank(to_integer(unsigned(reg_a_addr)));
-        reg_b_data <= register_bank(to_integer(unsigned(reg_b_addr)));
-        
+    begin       
         register_access: process(clk, write_en, write_addr) is
         begin
             -- na borda de subida
@@ -34,6 +31,10 @@ architecture Behavioral of reg_file is
             	if write_addr /= "00000" then
             		register_bank(to_integer(unsigned(write_addr))) <= write_data;
             	end if;
+            end if;
+            if falling_edge(clk) then
+            	reg_a_data <= register_bank(to_integer(unsigned(reg_a_addr)));
+        		reg_b_data <= register_bank(to_integer(unsigned(reg_b_addr)));
             end if;
         end process register_access;
 
