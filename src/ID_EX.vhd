@@ -46,16 +46,16 @@ entity ID_EX is
         reg_w_out : out std_logic;
 
         -- harzard
-        id_ex_flush : in std_logic;
-        id_ex_bubble : in std_logic
+        flush : in std_logic;
+        bubble : in std_logic
     );
 end ID_EX;
 
 architecture Behavioral of ID_EX is
     begin
-        process(clk, id_ex_flush, id_ex_bubble)
+        process(clk, flush, bubble)
         begin
-            if rising_edge(clk) and not id_ex_bubble = '1' and not id_ex_flush = '1' then
+            if rising_edge(clk) and not bubble = '1' then
                 instr_out <= instr_in;
                 pc_out <= pc_in;
 
@@ -72,7 +72,8 @@ architecture Behavioral of ID_EX is
                 pc_reg_br_out <= pc_reg_br_in;
                 mem_to_reg_out <= mem_to_reg_in;
                 reg_w_out <= reg_w_in;
-            else
+            end if;
+            if flush = '1' then
                 instr_out <= (others => '0');
                 pc_out <= (others => '0');
 
