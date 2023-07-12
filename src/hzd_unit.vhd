@@ -5,9 +5,9 @@ use ieee.std_logic_1164.all;
 entity hzd_unit is
     port(
         id_ex_mem_r : in std_logic;
-        id_ex_reg_dst : in std_logic_vector(31 downto 0);
-        if_id_reg_s1 : in std_logic_vector(31 downto 0);
-        if_id_reg_s2 : in std_logic_vector(31 downto 0);
+        id_ex_reg_dst : in std_logic_vector(4 downto 0);
+        if_id_reg_s1 : in std_logic_vector(4 downto 0);
+        if_id_reg_s2 : in std_logic_vector(4 downto 0);
 
         pc_write : out std_logic;
         if_id_write : out std_logic;
@@ -32,4 +32,3 @@ architecture Behavioral of hzd_unit is
             end if;
         end process hzd_detection;
 end Behavioral;
-
