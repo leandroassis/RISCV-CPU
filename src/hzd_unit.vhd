@@ -20,15 +20,16 @@ architecture Behavioral of hzd_unit is
 
         hzd_detection: process(id_ex_mem_r, id_ex_reg_dst, if_id_reg_s1, if_id_reg_s2)
         begin 
-            pc_write <= '1';
-            if_id_write <= '1';
-            bubble <= '0';
             if (id_ex_mem_r = '1') then
                 if (id_ex_reg_dst = if_id_reg_s1) or (id_ex_reg_dst = if_id_reg_s2) then -- stall
                     pc_write <= '0';
                     if_id_write <= '0';
                     bubble <= '1';
                 end if;
+            else
+               pc_write <= '1';
+            	if_id_write <= '1';
+            	bubble <= '0';
             end if;
         end process hzd_detection;
 end Behavioral;
