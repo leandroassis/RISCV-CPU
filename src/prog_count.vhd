@@ -20,7 +20,7 @@ architecture Behavioral of prog_count is
         immediate <= imm;
         pc <= ptr_pc;
 
-        fetch_instr: process(clk, branch, pc_reg_mux, pc_in) is
+        fetch_instr: process(clk, branch, pc_reg_mux, pc_in, reg_in) is
         begin
             if rising_edge(clk) then
                 if branch = '1' then
