@@ -166,13 +166,6 @@ end TCL_Generic;&#13;
     <a name="clabel" val=""/>
     <a name="clabelfont" val="SansSerif bold 16"/>
     <a name="clabelup" val="east"/>
-    <comp lib="0" loc="(1270,1510)" name="Clock">
-      <a name="label" val="clk_src"/>
-    </comp>
-    <comp lib="0" loc="(1360,1510)" name="Tunnel">
-      <a name="label" val="clk"/>
-      <a name="labelfont" val="SansSerif bold 13"/>
-    </comp>
     <comp lib="0" loc="(1390,1260)" name="Splitter">
       <a name="appear" val="right"/>
       <a name="bit1" val="0"/>
@@ -422,6 +415,9 @@ end TCL_Generic;&#13;
       <a name="labelfont" val="SansSerif bold 13"/>
       <a name="width" val="32"/>
     </comp>
+    <comp lib="0" loc="(3100,1740)" name="Clock">
+      <a name="label" val="clk_src"/>
+    </comp>
     <comp lib="0" loc="(3110,1310)" name="Tunnel">
       <a name="facing" val="east"/>
       <a name="label" val="MEM_WB_result"/>
@@ -455,6 +451,10 @@ end TCL_Generic;&#13;
       <a name="label" val="fwd_a"/>
       <a name="labelfont" val="SansSerif bold 13"/>
       <a name="width" val="2"/>
+    </comp>
+    <comp lib="0" loc="(3190,1740)" name="Tunnel">
+      <a name="label" val="clk"/>
+      <a name="labelfont" val="SansSerif bold 13"/>
     </comp>
     <comp lib="0" loc="(3200,1080)" name="Tunnel">
       <a name="facing" val="east"/>
@@ -515,12 +515,6 @@ end TCL_Generic;&#13;
       <a name="labelfont" val="SansSerif bold 13"/>
       <a name="width" val="32"/>
     </comp>
-    <comp lib="0" loc="(3670,1170)" name="Tunnel">
-      <a name="facing" val="east"/>
-      <a name="label" val="ID_EX_reg_b"/>
-      <a name="labelfont" val="SansSerif bold 13"/>
-      <a name="width" val="32"/>
-    </comp>
     <comp lib="0" loc="(3680,1070)" name="Tunnel">
       <a name="facing" val="south"/>
       <a name="label" val="clk"/>
@@ -536,15 +530,46 @@ end TCL_Generic;&#13;
       <a name="labelfont" val="SansSerif bold 13"/>
       <a name="width" val="2"/>
     </comp>
+    <comp lib="0" loc="(3700,1710)" name="Tunnel">
+      <a name="label" val="fwd_c"/>
+      <a name="labelfont" val="SansSerif bold 13"/>
+    </comp>
+    <comp lib="0" loc="(3710,1170)" name="Tunnel">
+      <a name="facing" val="east"/>
+      <a name="label" val="reg_b_ex_mem_in"/>
+      <a name="labelfont" val="SansSerif bold 13"/>
+      <a name="width" val="32"/>
+    </comp>
     <comp lib="0" loc="(3710,1200)" name="Tunnel">
       <a name="facing" val="east"/>
       <a name="label" val="ID_EX_imm"/>
       <a name="labelfont" val="SansSerif bold 13"/>
       <a name="width" val="32"/>
     </comp>
+    <comp lib="0" loc="(3720,1530)" name="Tunnel">
+      <a name="facing" val="north"/>
+      <a name="label" val="EX_MEM_alu_result"/>
+      <a name="labelfont" val="SansSerif bold 12"/>
+      <a name="width" val="32"/>
+    </comp>
     <comp lib="0" loc="(3740,1140)" name="Tunnel">
       <a name="facing" val="east"/>
       <a name="label" val="ID_EX_reg_a"/>
+      <a name="labelfont" val="SansSerif bold 13"/>
+      <a name="width" val="32"/>
+    </comp>
+    <comp lib="0" loc="(3740,1440)" name="Tunnel">
+      <a name="facing" val="east"/>
+      <a name="label" val="ID_EX_reg_b"/>
+      <a name="labelfont" val="SansSerif bold 13"/>
+      <a name="width" val="32"/>
+    </comp>
+    <comp lib="0" loc="(3790,1500)" name="Tunnel">
+      <a name="label" val="fwd_c"/>
+      <a name="labelfont" val="SansSerif bold 13"/>
+    </comp>
+    <comp lib="0" loc="(3840,1460)" name="Tunnel">
+      <a name="label" val="reg_b_ex_mem_in"/>
       <a name="labelfont" val="SansSerif bold 13"/>
       <a name="width" val="32"/>
     </comp>
@@ -654,6 +679,10 @@ end TCL_Generic;&#13;
       <a name="enable" val="false"/>
       <a name="width" val="32"/>
     </comp>
+    <comp lib="2" loc="(3800,1460)" name="Multiplexer">
+      <a name="enable" val="false"/>
+      <a name="width" val="32"/>
+    </comp>
     <comp lib="2" loc="(4940,990)" name="Multiplexer">
       <a name="enable" val="false"/>
       <a name="width" val="32"/>
@@ -662,7 +691,8 @@ end TCL_Generic;&#13;
       <a name="addrWidth" val="24"/>
       <a name="appearance" val="logisim_evolution"/>
       <a name="contents">addr/data: 24 32
-f1000293 502023 2d00313 632623 c32283 fe000be3
+7ff00313 7ff30313 130313 c00613 c313b3 6383b3 333 7002b3
+532023 130313 fe731ee3 63
 </a>
       <a name="dataWidth" val="32"/>
       <a name="label" val="program_mem"/>
@@ -732,7 +762,6 @@ f1000293 502023 2d00313 632623 c32283 fe000be3
     <wire from="(1030,1210)" to="(1430,1210)"/>
     <wire from="(1030,1280)" to="(1050,1280)"/>
     <wire from="(1270,1260)" to="(1330,1260)"/>
-    <wire from="(1270,1510)" to="(1360,1510)"/>
     <wire from="(1330,1230)" to="(1330,1260)"/>
     <wire from="(1330,1230)" to="(1700,1230)"/>
     <wire from="(1330,1260)" to="(1390,1260)"/>
@@ -874,6 +903,7 @@ f1000293 502023 2d00313 632623 c32283 fe000be3
     <wire from="(3080,960)" to="(3120,960)"/>
     <wire from="(3090,1000)" to="(3090,1020)"/>
     <wire from="(3090,1000)" to="(3140,1000)"/>
+    <wire from="(3100,1740)" to="(3190,1740)"/>
     <wire from="(3110,1310)" to="(3170,1310)"/>
     <wire from="(3120,1010)" to="(3120,1030)"/>
     <wire from="(3120,1010)" to="(3140,1010)"/>
@@ -944,14 +974,19 @@ f1000293 502023 2d00313 632623 c32283 fe000be3
     <wire from="(3630,1330)" to="(3750,1330)"/>
     <wire from="(3640,1350)" to="(3640,1600)"/>
     <wire from="(3640,1350)" to="(3750,1350)"/>
-    <wire from="(3670,1170)" to="(3750,1170)"/>
     <wire from="(3670,1660)" to="(3700,1660)"/>
     <wire from="(3670,1680)" to="(3700,1680)"/>
+    <wire from="(3670,1700)" to="(3680,1700)"/>
     <wire from="(3680,1070)" to="(3680,1080)"/>
     <wire from="(3680,1080)" to="(3750,1080)"/>
+    <wire from="(3680,1700)" to="(3680,1710)"/>
+    <wire from="(3680,1710)" to="(3700,1710)"/>
     <wire from="(3700,1740)" to="(3700,1820)"/>
     <wire from="(3700,1740)" to="(4010,1740)"/>
+    <wire from="(3710,1170)" to="(3750,1170)"/>
     <wire from="(3710,1200)" to="(3730,1200)"/>
+    <wire from="(3720,1470)" to="(3720,1530)"/>
+    <wire from="(3720,1470)" to="(3770,1470)"/>
     <wire from="(3730,1190)" to="(3730,1200)"/>
     <wire from="(3730,1190)" to="(3750,1190)"/>
     <wire from="(3730,1210)" to="(3730,1220)"/>
@@ -959,10 +994,16 @@ f1000293 502023 2d00313 632623 c32283 fe000be3
     <wire from="(3730,1230)" to="(3730,1240)"/>
     <wire from="(3730,1230)" to="(3750,1230)"/>
     <wire from="(3740,1140)" to="(3750,1140)"/>
+    <wire from="(3740,1440)" to="(3750,1440)"/>
     <wire from="(3750,1080)" to="(3750,1090)"/>
     <wire from="(3750,1100)" to="(3750,1110)"/>
     <wire from="(3750,1120)" to="(3750,1130)"/>
     <wire from="(3750,1140)" to="(3750,1150)"/>
+    <wire from="(3750,1440)" to="(3750,1450)"/>
+    <wire from="(3750,1450)" to="(3770,1450)"/>
+    <wire from="(3780,1480)" to="(3780,1500)"/>
+    <wire from="(3780,1500)" to="(3790,1500)"/>
+    <wire from="(3800,1460)" to="(3840,1460)"/>
     <wire from="(3970,1090)" to="(3980,1090)"/>
     <wire from="(3970,1110)" to="(3990,1110)"/>
     <wire from="(3970,1130)" to="(4190,1130)"/>
@@ -1676,7 +1717,8 @@ entity fwd_unit is
         mem_wb_reg_w : in std_logic;
 
         forward_a : out std_logic_vector(1 downto 0);
-        forward_b : out std_logic_vector(1 downto 0)
+        forward_b : out std_logic_vector(1 downto 0);
+        forward_c : out std_logic
     );
 end fwd_unit;
 
@@ -1684,28 +1726,28 @@ architecture Behavioral of fwd_unit is
     begin
         forward_decode : process(reg_s1, reg_s2, reg_dst, mem_wb_reg_dst, ex_mem_reg_dst, ex_mem_reg_w, mem_wb_reg_w) is
             begin
-                if ex_mem_reg_w = '1' and (ex_mem_reg_dst /= "00000") then
-                    if ex_mem_reg_dst = reg_s1 then
+            	 forward_a &lt;= "00";
+            	 forward_b &lt;= "00";
+            	 forward_c &lt;= '0';
+            	
+                if (ex_mem_reg_w = '1') and (ex_mem_reg_dst /= "00000") then
+                    if (ex_mem_reg_dst = reg_s1) then
                         forward_a &lt;= "10";
-                    else forward_a &lt;= "00";
                     end if;
-                    if ex_mem_reg_dst = reg_s2 then
+                    if (ex_mem_reg_dst = reg_s2) then
                         forward_b &lt;= "10";
-                    else forward_b &lt;= "00";
+                        forward_c &lt;= '1';
                     end if;
-                elsif mem_wb_reg_w = '1' and (mem_wb_reg_dst /= "00000") then
-                    if (mem_wb_reg_dst = reg_s1) and (ex_mem_reg_dst = reg_s1) then
-                        forward_a &lt;= "01";
-                    else forward_a &lt;= "00";
-                    end if;
-                    if (mem_wb_reg_dst = reg_s2) and (ex_mem_reg_dst = reg_s2) then
-                        forward_b &lt;= "01";
-                    else forward_b &lt;= "00";
-                    end if;
-                else
-                    forward_a &lt;= "00";
-                    forward_b &lt;= "00";
                 end if;
+			 
+                if (mem_wb_reg_w = '1') and (mem_wb_reg_dst /= "00000") and not (ex_mem_reg_w ='1' and (ex_mem_reg_dst /= "00000") and (ex_mem_reg_dst = reg_s1)) and (mem_wb_reg_dst = reg_s1) then
+                    forward_a &lt;= "01";
+                end if;
+                if (mem_wb_reg_w = '1') and (mem_wb_reg_dst /= "00000") and not (ex_mem_reg_w ='1' and (ex_mem_reg_dst /= "00000") and (ex_mem_reg_dst = reg_s2)) and (mem_wb_reg_dst = reg_s2) then
+                    forward_b &lt;= "01";
+                end if;
+
         end process forward_decode;
-end Behavioral;</vhdl>
+end Behavioral;
+</vhdl>
 </project>
