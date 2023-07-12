@@ -692,7 +692,77 @@ end TCL_Generic;&#13;
       <a name="appearance" val="logisim_evolution"/>
       <a name="contents">addr/data: 24 32
 7ff00313 7ff30313 130313 c00613 c313b3 6383b3 333 7002b3
-532023 130313 fe731ee3 63
+532023 130313 fe731ee3 7ff00313 7ff30313 130313 c00613 c313b3
+6383b3 333 7002b3 532023 130313 fe731ee3 7ff00313 7ff30313
+130313 c00613 c313b3 6383b3 333 7002b3 532023 130313
+fe731ee3 7ff00313 7ff30313 130313 c00613 c313b3 6383b3 333
+7002b3 532023 130313 fe731ee3 7ff00313 7ff30313 130313 c00613
+c313b3 6383b3 333 7002b3 532023 130313 fe731ee3 7ff00313
+7ff30313 130313 c00613 c313b3 6383b3 333 7002b3 532023
+130313 fe731ee3 7ff00313 7ff30313 130313 c00613 c313b3 6383b3
+333 7002b3 532023 130313 fe731ee3 7ff00313 7ff30313 130313
+c00613 c313b3 6383b3 333 7002b3 532023 130313 fe731ee3
+7ff00313 7ff30313 130313 c00613 c313b3 6383b3 333 7002b3
+532023 130313 fe731ee3 7ff00313 7ff30313 130313 c00613 c313b3
+6383b3 333 7002b3 532023 130313 fe731ee3 7ff00313 7ff30313
+130313 c00613 c313b3 6383b3 333 7002b3 532023 130313
+fe731ee3 7ff00313 7ff30313 130313 c00613 c313b3 6383b3 333
+7002b3 532023 130313 fe731ee3 7ff00313 7ff30313 130313 c00613
+c313b3 6383b3 333 7002b3 532023 130313 fe731ee3 7ff00313
+7ff30313 130313 c00613 c313b3 6383b3 333 7002b3 532023
+130313 fe731ee3 7ff00313 7ff30313 130313 c00613 c313b3 6383b3
+333 7002b3 532023 130313 fe731ee3 7ff00313 7ff30313 130313
+c00613 c313b3 6383b3 333 7002b3 532023 130313 fe731ee3
+7ff00313 7ff30313 130313 c00613 c313b3 6383b3 333 7002b3
+532023 130313 fe731ee3 7ff00313 7ff30313 130313 c00613 c313b3
+6383b3 333 7002b3 532023 130313 fe731ee3 7ff00313 7ff30313
+130313 c00613 c313b3 6383b3 333 7002b3 532023 130313
+fe731ee3 7ff00313 7ff30313 130313 c00613 c313b3 6383b3 333
+7002b3 532023 130313 fe731ee3 7ff00313 7ff30313 130313 c00613
+c313b3 6383b3 333 7002b3 532023 130313 fe731ee3 7ff00313
+7ff30313 130313 c00613 c313b3 6383b3 333 7002b3 532023
+130313 fe731ee3 7ff00313 7ff30313 130313 c00613 c313b3 6383b3
+333 7002b3 532023 130313 fe731ee3 7ff00313 7ff30313 130313
+c00613 c313b3 6383b3 333 7002b3 532023 130313 fe731ee3
+7ff00313 7ff30313 130313 c00613 c313b3 6383b3 333 7002b3
+532023 130313 fe731ee3 7ff00313 7ff30313 130313 c00613 c313b3
+6383b3 333 7002b3 532023 130313 fe731ee3 7ff00313 7ff30313
+130313 c00613 c313b3 6383b3 333 7002b3 532023 130313
+fe731ee3 7ff00313 7ff30313 130313 c00613 c313b3 6383b3 333
+7002b3 532023 130313 fe731ee3 7ff00313 7ff30313 130313 c00613
+c313b3 6383b3 333 7002b3 532023 130313 fe731ee3 7ff00313
+7ff30313 130313 c00613 c313b3 6383b3 333 7002b3 532023
+130313 fe731ee3 7ff00313 7ff30313 130313 c00613 c313b3 6383b3
+333 7002b3 532023 130313 fe731ee3 7ff00313 7ff30313 130313
+c00613 c313b3 6383b3 333 7002b3 532023 130313 fe731ee3
+7ff00313 7ff30313 130313 c00613 c313b3 6383b3 333 7002b3
+532023 130313 fe731ee3 7ff00313 7ff30313 130313 c00613 c313b3
+6383b3 333 7002b3 532023 130313 fe731ee3 7ff00313 7ff30313
+130313 c00613 c313b3 6383b3 333 7002b3 532023 130313
+fe731ee3 7ff00313 7ff30313 130313 c00613 c313b3 6383b3 333
+7002b3 532023 130313 fe731ee3 7ff00313 7ff30313 130313 c00613
+c313b3 6383b3 333 7002b3 532023 130313 fe731ee3 7ff00313
+7ff30313 130313 c00613 c313b3 6383b3 333 7002b3 532023
+130313 fe731ee3 7ff00313 7ff30313 130313 c00613 c313b3 6383b3
+333 7002b3 532023 130313 fe731ee3 7ff00313 7ff30313 130313
+c00613 c313b3 6383b3 333 7002b3 532023 130313 fe731ee3
+7ff00313 7ff30313 130313 c00613 c313b3 6383b3 333 7002b3
+532023 130313 fe731ee3 7ff00313 7ff30313 130313 c00613 c313b3
+6383b3 333 7002b3 532023 130313 fe731ee3 7ff00313 7ff30313
+130313 c00613 c313b3 6383b3 333 7002b3 532023 130313
+fe731ee3 7ff00313 7ff30313 130313 c00613 c313b3 6383b3 333
+7002b3 532023 130313 fe731ee3 7ff00313 7ff30313 130313 c00613
+c313b3 6383b3 333 7002b3 532023 130313 fe731ee3 7ff00313
+7ff30313 130313 c00613 c313b3 6383b3 333 7002b3 532023
+130313 fe731ee3 7ff00313 7ff30313 130313 c00613 c313b3 6383b3
+333 7002b3 532023 130313 fe731ee3 7ff00313 7ff30313 130313
+c00613 c313b3 6383b3 333 7002b3 532023 130313 fe731ee3
+7ff00313 7ff30313 130313 c00613 c313b3 6383b3 333 7002b3
+532023 130313 fe731ee3 7ff00313 7ff30313 130313 c00613 c313b3
+6383b3 333 7002b3 532023 130313 fe731ee3 7ff00313 7ff30313
+130313 c00613 c313b3 6383b3 333 7002b3 532023 130313
+fe731ee3 7ff00313 7ff30313 130313 c00613 c313b3 6383b3 333
+7002b3 532023 130313 fe731ee3
 </a>
       <a name="dataWidth" val="32"/>
       <a name="label" val="program_mem"/>
@@ -1105,7 +1175,7 @@ architecture Behavioral of prog_count is
         immediate &lt;= imm;
         pc &lt;= ptr_pc;
 
-        fetch_instr: process(clk, branch, pc_reg_mux, pc_in) is
+        fetch_instr: process(clk, branch, pc_reg_mux, pc_in, reg_in) is
         begin
             if rising_edge(clk) then
                 if branch = '1' then
@@ -1145,10 +1215,7 @@ architecture Behavioral of reg_file is
     type register_mem is array (integer range &lt;&gt;) of std_logic_vector(31 downto 0);
     signal register_bank : register_mem(0 to 31) := (others =&gt; x"00000000");
 
-    begin
-        reg_a_data &lt;= register_bank(to_integer(unsigned(reg_a_addr)));
-        reg_b_data &lt;= register_bank(to_integer(unsigned(reg_b_addr)));
-        
+    begin       
         register_access: process(clk, write_en, write_addr) is
         begin
             -- na borda de subida
@@ -1156,6 +1223,10 @@ architecture Behavioral of reg_file is
             	if write_addr /= "00000" then
             		register_bank(to_integer(unsigned(write_addr))) &lt;= write_data;
             	end if;
+            end if;
+            if falling_edge(clk) then
+            	reg_a_data &lt;= register_bank(to_integer(unsigned(reg_a_addr)));
+        		reg_b_data &lt;= register_bank(to_integer(unsigned(reg_b_addr)));
             end if;
         end process register_access;
 
@@ -1238,7 +1309,7 @@ begin
     --  010     logico-aritmética (I-type)
     --  011     branch (equal or not equal)
     --  100     adição in1 + in2
-    --  101     adição in1 + 4
+    --  101     adição in1 + 1 (equal or not equal = 1)
     --  110     passa o imediato (in2) direto pra saída
     --  111     nop
 
@@ -1321,7 +1392,7 @@ begin
                 mem_write &lt;= 'X';  -- não é mem
                 mem_read &lt;= 'X';
                 branch &lt;= '1'; -- branch
-                alu_src &lt;= '1'; -- imediato
+                alu_src &lt;= 'X'; -- tanto faz o que entra na segunda entrada 
                 alu_op &lt;= "101"; --(add + 4)
                 pc_reg &lt;= '1'; -- passa pc
                 pc_reg_branch &lt;= '0'; -- passa pc
@@ -1331,7 +1402,7 @@ begin
                 mem_write &lt;= 'X';  -- não é mem
                 mem_read &lt;= 'X';
                 branch &lt;= '1'; -- branch
-                alu_src &lt;= '1'; -- imediato
+                alu_src &lt;= 'X'; -- tanto faz o que entra na segunda entrada
                 alu_op &lt;= "101"; --(add + 4)
                 pc_reg &lt;= '1'; -- passa pc
                 pc_reg_branch &lt;= '1'; -- passa reg1
@@ -1402,13 +1473,13 @@ architecture Behavioral of alu is
                 out_r &lt;= std_logic_vector(shift_right(unsigned(in_a), to_integer(unsigned(in_b(4 downto 0)))));
                 aux_br &lt;= '0';
             when "1000" =&gt; 
-                out_r &lt;= (others =&gt; 'X');
+                out_r &lt;= (others =&gt; '0');
                 if in_a = in_b then
                 	aux_br &lt;= '1';
                 else aux_br &lt;= '0';
                 end if;
             when "1001" =&gt; 
-                out_r &lt;= (others =&gt; 'X');
+                out_r &lt;= (others =&gt; '0');
                 if in_a /= in_b then
                 	aux_br &lt;= '1';
                 else aux_br &lt;= '0';
@@ -1462,6 +1533,7 @@ begin
 
     op_decode: process(alu_op, funct3, funct7) is
         begin
+        	  opcode &lt;= "0000";
             if alu_op = "001" or alu_op = "010" then
                 if funct3 = "000" and alu_op = "001" then
 	                if funct7 = "0000000" then -- add
